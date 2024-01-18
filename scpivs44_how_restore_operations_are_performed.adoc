@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_how_restore_operations_are_performed.html 
+keywords:  
+summary: 在VMFS環境中、SnapCenter VMware vSphere的VMware vSphere的《Sesf2外掛程式》使用Storage vMotion來執行複製和掛載作業、以執行還原作業。對於NFS環境、外掛程式使用原生ONTAP 的「僅供參考的單一檔案SnapRestore 」（SFSR）、為大多數的還原作業提供更高的效率。對於VVol VM、外掛程式使用ONTAP 「還原單一檔案Snapshot還原」和「SnapMirror還原」來進行還原作業。 
+---
+= 如何執行還原作業
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在VMFS環境中、SnapCenter VMware vSphere的VMware vSphere的《Sesf2外掛程式》使用Storage vMotion來執行複製和掛載作業、以執行還原作業。對於NFS環境、外掛程式使用原生ONTAP 的「僅供參考的單一檔案SnapRestore 」（SFSR）、為大多數的還原作業提供更高的效率。對於VVol VM、外掛程式使用ONTAP 「還原單一檔案Snapshot還原ONTAP 」（還原SFSR）和SnapMirror還原來還原作業。下表列出如何執行還原作業。
+
+|===
+| 還原作業 | 寄件者 | 使用執行 
+
+
+| VM和VMDK | 主要備份 | NFS 環境： ONTAP 單一檔案 SnapRestore
+VMFS 環境：使用 Storage VMotion 複製及掛載 
+
+
+| VM和VMDK | 二線備份 | NFS 環境： ONTAP 單一檔案 SnapRestore
+VMFS 環境：使用 Storage VMotion 複製及掛載 
+
+
+| 刪除VM和VMDK | 主要備份 | NFS 環境： ONTAP 單一檔案 SnapRestore
+VMFS 環境：使用 Storage VMotion 複製及掛載 
+
+
+| 刪除VM和VMDK | 二線備份 | NFS 環境：使用 Storage VMotion 複製及掛載
+VMFS 環境：使用 Storage VMotion 複製及掛載 
+
+
+| VM和VMDK | VM一致的主要備份 | NFS 環境： ONTAP 單一檔案 SnapRestore
+VMFS 環境：使用 Storage VMotion 複製及掛載 
+
+
+| VM和VMDK | VM一致的次要備份 | NFS 環境：使用 Storage VMotion 複製及掛載
+VMFS 環境：使用 Storage VMotion 複製及掛載 
+
+
+| VVOL VM | 損毀一致的主要備份 | 適用於所有傳輸協定的單一檔案ONTAP SnapRestore 
+
+
+| VVOL VM | 損毀一致的次要備份 | 適用於所有傳輸協定的SnapMirror還原ONTAP 
+
+
+| 支援虛擬機器FlexGroup | 主要備份  a| 
+NFS環境：
+* 如果您使用的是 ONTAP 9.10.1 版以上的版本、請使用 ONTAP 單一檔案 SnapRestore
+* 在 ONTAP 舊版上使用 Storage VMotion 複製及掛載
+
+VMFS環境：不支援FlexGroups
+
+
+
+| 支援虛擬機器FlexGroup | 二線備份  a| 
+NFS環境：
+
+* ONTAP SnapMirror Restore （如果您使用的是 ONTAP 9.10.1 版或更高版本）
+* 利用Storage VMotion複製及掛載舊ONTAP 版產品
+
+
+VMFS環境：不支援FlexGroups
+
+|===
+
+NOTE: vVol Container重新平衡後、您無法還原vVol VM。
+
+在NFS和VMFS環境中使用複製和掛載作業（而非Storage vMotion）來執行客體檔案還原作業。
+
+
+IMPORTANT: 在還原作業期間、您可能會遇到錯誤 `Host unresolved volumes is null` 或 `Exception while calling pre-restore on SCV….Error mounting cloned LUN as datastore…` 當VMware的VMware更新外掛程式嘗試重新簽署實體複本時、就會發生這種情況SnapCenter 。由於VMware的限制、SnapCenter 在進階ESXi組態中、VMware插件無法控制自動重新簽名值。
+
+請參閱 https://kb.netapp.com/mgmt/SnapCenter/SCV_clone_or_restores_fail_with_error_'Host_Unresolved_volumes_is_null'#["知識庫文章：選擇控制閥複製或還原失敗、並顯示錯誤「主機未解析的磁碟區為 null"^] 以取得更多關於錯誤的資訊。

@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_minimum_vcenter_privileges_required.html 
+keywords:  
+summary: 在開始部署SnapCenter VMware vSphere的VMware vSphere版的VMware vCenter外掛程式之前、您應該先確定擁有最低所需的vCenter權限。 
+---
+= 所需的vCenter權限下限
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在開始部署SnapCenter VMware vSphere的VMware vSphere版的VMware vCenter外掛程式之前、您應該先確定擁有最低所需的vCenter權限。
+
+
+
+== vCenter管理員角色所需的權限
+
+datastore.AllocateSpace
+datastore.Browse
+datastore.Delete
+datastore.FileManagement
+datastore.move
+datastore.Rename
+擴充功能。註冊
+extension 。取消登錄
+extension 更新
+host.Config.AdvancedConfig
+host.Config.Resources
+host.Config.Settings
+host.Config.Storage
+host.local.CreateVM
+host.local.DeleteVM
+host.local.ReconfigVM
+network.assign
+resource.ApplyRecomendation
+resource.AssignVMToPool
+resource.ColdMigrate
+resource.HotMigrate
+resource.QueryVMotion
+system.Anonymous
+system.read
+system.View
+工作。建立
+工作。更新
+VirtualMachine.Config.AddExistingDisk
+VirtualMachine.Config.AddNewDisk
+VirtualMachine.Config.AdvancedConfig
+VirtualMachine.Config.ReloadFromPath
+VirtualMachine.Config.RemoveDisk
+VirtualMachine.Config.Resource
+VirtualMachine.GuestOperations 。執行
+VirtualMachine.GuestOperations 。修改
+VirtualMachine.GuestOperations 。查詢
+VirtualMachine.互 動。 PowerOff
+VirtualMachine.互 動。 PowerOn
+VirtualMachine.Inventory 。 Create
+VirtualMachine.Inventory 。 CreateFromExisting
+VirtualMachine.Inventory 。刪除
+VirtualMachine.Inventory 。 Move
+VirtualMachine.Inventory 。註冊
+VirtualMachine.Inventory 。取消登錄
+VirtualMachine.State.CreateSnapshot
+VirtualMachine.State.RemoveSnapshot
+VirtualMachine.State.RevertToSnapshot
+
+
+
+== VMware vCenter適用的VMware vCenter的必要權限SnapCenter
+
+|===
+
+
+| *權限* | *標籤* 
+
+
+| netappsorm.訪 客.RestoreFile | 客體檔案還原 
+
+
+| NETappSCV。儲料。掛載 | 掛載/卸載 
+
+
+| netappsorm.Backup。刪除備份工作 | 刪除資源群組/備份 
+
+
+| netappsc.Configure。Configure儲存系統。刪除 | 移除儲存系統 
+
+
+| NETappSCV檢視 | 檢視 
+
+
+| NETappSCV。RecoverVM恢復 | 恢復VM 
+
+
+| Netappsc.Configure。Configure儲存系統。AddUpdate | 新增/修改儲存系統 
+
+
+| netappsorm.Backup、立即備份 | 立即備份 
+
+
+| NETappSCV。Guest。設定 | 客體組態 
+
+
+| netappsection.Config.ConfigureSnapCenterServer | 設定SnapCenter 伺服器 
+
+
+| Netappsor.Backup備份排程 | 建立資源群組 
+|===
