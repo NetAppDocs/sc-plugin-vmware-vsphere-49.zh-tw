@@ -1033,7 +1033,6 @@ VirtualMachine.State.RevertToSnapshot</block>
   <block id="6d2bf94f38d1fdf840fe9b231866899c" category="doc">部署總覽</block>
   <block id="8c5a46f2b9b85dd307d50498933fef6a" category="paragraph">現有SnapCenter 的無需更新SnapCenter 的使用者必須使用不同於新版使用者的部署工作流程。</block>
   <block id="35b654fd14f12a33551c1993b5321fcb" category="summary">VMware vSphere（選擇控制器）的VMware外掛程式是Linux型虛擬應用裝置。SnapCenter獨立式環境可為VM、資料存放區及VMDK提供快速、節省空間、損毀一致且VM一致的備份與還原作業。它也能搭配SnapCenter 使用支援應用程式型的VMware環境備份與還原作業、以利SnapCenter 執行應用程式專屬的外掛程式。</block>
-  <block id="8c3d0c00ea667e3e0723e5cdc6473a09" category="doc">VMware vSphere文件的VMware外掛程式SnapCenter</block>
   <block id="0732e8e379c23dc5fb5e0055374a7f1d" category="summary">如果SnapCenter VMware vSphere用戶端的行為不正確、您可能需要清除瀏覽器快取。如果問題持續發生、請重新啟動Web用戶端服務。</block>
   <block id="ae6aa491e5b4d2d79971ced34f86c80e" category="section-title">在Linux vCenter中重新啟動VMware vSphere用戶端服務</block>
   <block id="e570bf7b85385c5bda85ef035051e28f" category="paragraph">您必須執行vCenter 7.0U1或更新版本。</block>
@@ -2407,4 +2406,5 @@ IPv6範例：<block ref="f7a108079a0dc952ef09921776f4796f" prefix=" " category="
   <block id="c257f5c852c12409e63afb17104f69c5" category="sidebar">REST API</block>
   <block id="a3d53cfe9124531cb5f9bbfefe704326" category="sidebar">REST API工作流程可修改內建排程</block>
   <block id="3da6944b1baaec4beb70694ac307fd1f" category="sidebar">升級至同一版本的新修補程式</block>
+  <block id="147e8233cabd13a871f077b92a377a39" category="sidebar">適用於 VMware vSphere 4.9 的 SnapCenter 外掛程式文件</block>
 </blocks>
